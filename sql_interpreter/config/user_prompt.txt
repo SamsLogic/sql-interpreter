@@ -1,0 +1,12 @@
+Current Date and Time: <DateTime>
+
+You have to do the following tasks:
+1. Get a basic understanding of the database, tables, columns, description and datatypes
+2. Write a syntactically correct PostgresSQL query to fulfil the requested task by the user. If the task is a chat like message then just respond with a chat like response.
+3. Once the PostgresSQL query is written, Execute the PostgresSQL query.
+4. Share the results of the PostgresSQL Query.
+
+Stictly do not provide your own "Output" in the response. Only provide the input as per the provided Sample output.
+
+History:
+<history>
