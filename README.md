@@ -52,7 +52,7 @@ pip install -r requirements.txt
     ```console
     copy config\.env.example config\.env
     ```
-    iii. # Maintain PostgresSQL DB credentials and OpenAI API credentials in the .env file.    
+    iii. Maintain PostgresSQL DB credentials and OpenAI API credentials in the .env file.    
 
 4. Run the code and have fun
 ```console
