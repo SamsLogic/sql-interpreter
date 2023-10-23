@@ -8,6 +8,7 @@ SQL interpreter based on Auto-GPT to autonomously generate and run postgressql c
 - [x] Automatic PostgresSQL code generation and execution in postgresSQL server
 - [x] Automatic database understanding before initiating SQL development
 - [x] Automatic Exit condition handled by chatgpt
+- [x] Support for Azure OpenAI
 - [ ] Add logging
 - [ ] Handling repeated answers
 - [ ] Adding function calling support
