@@ -21,7 +21,7 @@ if OPENAI_API_TYPE == 'azure':
 else:
     openai.api_key = OPENAI_API_KEY
 
-class sqlInterprert():
+class sqlInterpreter():
     def __init__(self, input_prompt, max_steps, max_cost, model) -> None:
         self.input_prompt = input_prompt
         self.max_steps = max_steps
@@ -184,11 +184,8 @@ class sqlInterprert():
             cost = 0
         return cost
     
-    def main(self):
-        steps = 0
-        cost = 0
-        self.get_database_info()
-        while True:
+    def openai_api_call(self):
+        if openai.api_type == 'azure':
             response = openai.ChatCompletion.create(
                 engine=self.model,
                 messages=[{"role":"system", "content":self.system_prompt}, {"role":"user", "content":self.user_prompt}],
@@ -201,6 +198,27 @@ class sqlInterprert():
                 timeout=TIMEOUT,
                 n=N_RESP
             )
+        else:
+            response = openai.ChatCompletion.create(
+                model=self.model,
+                messages=[{"role":"system", "content":self.system_prompt}, {"role":"user", "content":self.user_prompt}],
+                temperature=TEMPERATURE,
+                max_tokens=MAX_TOKENS,
+                top_p=TOP_P,
+                frequency_penalty=FREQUENCY_PENALTY,
+                presence_penalty=PRESENCE_PENALTY,
+                stop=STOP,
+                timeout=TIMEOUT,
+                n=N_RESP
+            )
+        return response
+
+    def main(self):
+        steps = 0
+        cost = 0
+        self.get_database_info()
+        while True:
+            response = self.openai_api_call()
             
             output_response = response['choices'][0]['message']['content']
 
@@ -241,5 +259,5 @@ if __name__ == "__main__":
     # input_prompt = "How many executions were done last month?"
     max_steps = 20
     max_cost = 0.5
-    model = "DIR_GPT4"
-    sqlInterprert(input_prompt, max_steps, max_cost, model).main()
+    model = "gpt-3.5-turbo"
+    sqlInterpreter(input_prompt, max_steps, max_cost, model).main()
