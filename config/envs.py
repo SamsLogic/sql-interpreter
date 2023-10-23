@@ -3,7 +3,7 @@ import sys
 from dotenv import load_dotenv
 
 if os.environ.get('LOAD_FROM_ENV_FILE', '1') == '1':
-    load_dotenv()
+    load_dotenv(override=True)
 
 # OpenAI config
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', None)

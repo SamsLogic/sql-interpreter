@@ -259,5 +259,5 @@ if __name__ == "__main__":
     # input_prompt = "How many executions were done last month?"
     max_steps = 20
     max_cost = 0.5
-    model = "gpt-3.5-turbo"
+    model = "gpt-4"
     sqlInterpreter(input_prompt, max_steps, max_cost, model).main()
