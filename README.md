@@ -2,6 +2,8 @@
 
 SQL interpreter based on Auto-GPT to autonomously generate and run postgressql code based on natural language input.
 
+![sample output](https://github.com/SamsLogic/sql-interpreter/assets/41964069/e840c96e-46f5-43d5-aeac-5ebaafe3fc11)
+
 ## Functionalities
 - [x] Automatic PostgresSQL code generation and execution in postgresSQL server
 - [x] Automatic database understanding before initiating SQL development
